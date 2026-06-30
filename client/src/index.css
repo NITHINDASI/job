@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+*{
+    font-family:Outfit;
+}
+
+@layer base{
+    html{
+        scroll-behavior: smooth;
+    }
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+/* Main rich text container */
+.rich-text {
+  font-size: 15px;
+  color: #6b7280;
+  line-height: 1.9;
+}
+
+/* Paragraphs */
+.rich-text p {
+  margin-bottom: 18px;
+}
+
+/* Section headings like Job description, Key Responsibilities */
+.rich-text h2,
+.rich-text h3 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #111827;
+  margin: 32px 0 20px;
+  line-height: 1.2;
+}
+
+/* Ordered list (1, 2, 3...) */
+.rich-text ol {
+  list-style-type: decimal;   /* Shows numbers */
+  padding-left: 24px;
+  margin: 16px 0 24px;
+}
+
+/* Unordered list (bullets) */
+.rich-text ul {
+  list-style-type: disc;
+  padding-left: 24px;
+  margin: 16px 0 24px;
+}
+
+/* List items */
+.rich-text li {
+  display: list-item;         /* Ensures markers are visible */
+  margin-bottom: 10px;
+  color: #6b7280;
+  line-height: 1.9;
+}
+
+/* Bold text */
+.rich-text strong {
+  font-weight: 600;
+  color: #111827;
+}
