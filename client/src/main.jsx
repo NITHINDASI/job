@@ -4,9 +4,7 @@ import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
 import { AppContextProvider } from "./context/AppContext.jsx";
 import "./index.css";
-import { ClerkProvider } from "@clerk/clerk-react";
-
-
+import { ClerkProvider, SignedIn, SignedOut, SignIn } from "@clerk/clerk-react";
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
@@ -18,9 +16,15 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl="/">
       <BrowserRouter>
-        <AppContextProvider>
-          <App />
-        </AppContextProvider>
+        {/* ✅ Wrap your app with SignedIn/SignedOut */}
+        <SignedIn>
+          <AppContextProvider>
+            <App />
+          </AppContextProvider>
+        </SignedIn>
+        <SignedOut>
+          <SignIn /> {/* Clerk’s default login screen */}
+        </SignedOut>
       </BrowserRouter>
     </ClerkProvider>
   </React.StrictMode>
